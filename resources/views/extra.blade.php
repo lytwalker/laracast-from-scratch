@@ -1,8 +1,10 @@
 @extends('layout')
 
+@section('title', 'Extra')
+
 @section('content')
 
-<h1>My First Laravel Webpage</h1>
+<h1>Extra Laravel Webpage</h1>
 <h2>{{ $foo }}</h2>
 
 <ul>

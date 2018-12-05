@@ -12,13 +12,38 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $tasks = [
+        'Go to the store',
+        'Go to the market',
+        'Go to work'
+    ];
+
+    return view('welcome', [
+        'tasks' => $tasks,
+        'foo' => request('title')
+    ]);
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    $tasks = [
+      'Go to the contact store',
+      'Go to the contact market',
+      'Go to contact work',
+      'Go to contact home'
+    ];
+      return view('contact')->withTasks($tasks)->withFoo('foo');
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+    'unescaped' => '<script>alert("This is a demo of how to pass unescaped code.")</script>'
+    ]);
+});
+
+Route::get('/extra', function () {
+    return view('extra')->with([
+      'foo' => request('title', 'Try entering a url parameter \'title\' with whatever value you want'),
+      'tasks' => ['some task']
+    ]);
 });
