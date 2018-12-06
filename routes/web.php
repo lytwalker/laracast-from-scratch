@@ -18,3 +18,5 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
 Route::get('/extra', 'PagesController@extra');
+
+Route::get('/projects', 'ProjectsController@index');

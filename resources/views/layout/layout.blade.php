@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="/">Home</a>
-                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="/projects">Projects</a>
                     <a href="/extra">Extra</a>
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
