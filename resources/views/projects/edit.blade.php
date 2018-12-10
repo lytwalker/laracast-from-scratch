@@ -25,7 +25,23 @@
         </div>
     </div>
     <div class="field">
-        <button type="submit" class="button is-link">Update</button>
+        <div class="control">
+            <button type="submit" class="button is-link">Update</button>
+        </div>
+    </div>
+
+</form>
+
+<form action="/projects/{{ $project->id }}" method="POST">
+
+    {{ method_field('DELETE') }}
+
+    {{ csrf_field() }}
+    
+    <div class="field">
+        <div class="control">
+            <button type="submit" class="button">Delete</button>
+        </div>
     </div>
 
 </form>
