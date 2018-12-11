@@ -82,7 +82,7 @@
 
                 
                 <div class="title m-b-md">
-                    Laravel 5.7 From Scratch
+                    ZOL
                 </div>
 
                 <div class="links">

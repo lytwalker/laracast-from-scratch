@@ -6,14 +6,14 @@
 
 <a href="/projects/create">Create project</a>
 
-<h1>My First Laravel "{{ $stringliteral }}" Webpage</h1>
-<h2>{{ $foo }}</h2>
+<h1>All projects</h1>
+<h2>Complete list</h2>
 
 <ul>
 
 @foreach ($projects as $project)
 
-  <li><a href="/projects/{{ $project->id }}/edit">{{ $project->title }}</a></li>
+  <li><a href="/projects/{{ $project->id }}">{{ $project->title }}</a></li>
 
 @endforeach
 

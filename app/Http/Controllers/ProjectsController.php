@@ -15,11 +15,13 @@ class ProjectsController extends Controller
         // this will return JSON
         //return $projects;
         
-        return view('projects.index', [
-        'projects' => $projects,
-        'stringliteral' => 'Hello Projects!!!',
-        'foo' => request('title', 'Try entering a url parameter \'title\' with whatever value you want')
-        ]);
+        return view('projects.index', compact('projects'));
+    }
+
+    // Show project page
+    public function show(Project $project) {
+
+        return view('projects.show', compact('project'));
     }
 
     // Create project page
@@ -31,38 +33,26 @@ class ProjectsController extends Controller
     // Create project page
     public function store() {
         
-        $project = new Project();
-
-        $project->title = request('title');
-        $project->description = request('description');
-        
-        $project->save();
+        Project::create(request(['title','description']));
 
         return redirect('/projects');
     }
 
-    public function edit($id) { // example.com/projects/1/edit
-
-        $project = Project::findOrFail($id);
+    public function edit(Project $project) { // example.com/projects/1/edit
 
         return view('projects.edit', compact('project'));
     }
 
-    public function update($id) {
+    public function update(Project $project) {
 
-        $project = Project::findOrFail($id);
-
-        $project->title = request('title');
-        $project->description = request('description');
-        
-        $project->save();
+        $project->update(request(['title','description']));
 
         return redirect('/projects');
     }
 
-    public function destroy($id) {
+    public function destroy(Project $project) {
 
-        Project::findOrFail($id)->delete();
+        $project->delete();
 
         return redirect('/projects');
     }
