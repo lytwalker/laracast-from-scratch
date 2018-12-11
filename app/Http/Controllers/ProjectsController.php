@@ -32,8 +32,19 @@ class ProjectsController extends Controller
 
     // Create project page
     public function store() {
+
+        // THe following is also works. It's an inline version of the below 2 lines of code...But I prefer not to use it.
+        /*Project::create(request()->validate([
+            'title' => ['required', 'min:3', 'max:128'],
+            'description' => ['required', 'min:30']
+            ]));*/
+
+        $validated_attributes = request()->validate([
+            'title' => ['required', 'min:3', 'max:128'],
+            'description' => ['required', 'min:30']
+            ]);
         
-        Project::create(request(['title','description']));
+        Project::create($validated_attributes);
 
         return redirect('/projects');
     }
