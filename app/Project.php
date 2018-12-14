@@ -15,4 +15,16 @@ class Project extends Model
     // ...blacklists only these elements CANNOT be 'filled' (i.e. updated)
     //protected $guarded = [];
 
+
+    // APPROACH 1 - This is how to associate 2 tables
+    /* 
+    - I prefer APPROACH 2 (as seen in the Task model) because I think it makes things more modular. 
+    - The burden of association falls on this parent class/table.
+    - If it's associated child class/table (i.e. Task) is deleted, this will break.
+    - * YOU CAN DO BOTH APPROACHES *
+    */
+    public function tasks(){
+        // -- In this case it means a "Project has many Tasks"
+        return $this->hasMany(Task::class);
+    }
 }
