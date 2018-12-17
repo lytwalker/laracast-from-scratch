@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    protected $fillable = [
+        'completed'
+    ];
 
     // APPROACH 2 - This is another way to associate 2 tables
     /* 
