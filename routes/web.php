@@ -52,6 +52,8 @@ Route::get('/extra', 'PagesController@extra');
 /* Here's a shortcut for the above 7 interactions */
 Route::resource('projects', 'ProjectsController');
 
+Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
+
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 /* *** IMPORTANT ***

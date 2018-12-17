@@ -67,6 +67,11 @@
             .is-complete {
                 text-decoration: line-through;
             }
+
+            .notification.is-danger ul {
+                list-style: none;
+                margin: 0;
+            }
         </style>
     </head>
     <body>

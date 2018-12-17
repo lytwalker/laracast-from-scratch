@@ -10,12 +10,13 @@
 <p><a href="/projects/{{ $project->id }}/edit">Edit {{ $project->title }}</a></p>
 
 @if($project->tasks->count())
-<h2>Tasks</h2>
-<p>
+<div class="box">
+    <h2>Tasks</h2>
     <ol>
         @foreach ($project->tasks as $task)
         <div>
             <form action="/tasks/{{ $task->id }}" method="POST">
+
                 {{ method_field('PATCH') }}
 
                 {{ csrf_field() }}
@@ -29,7 +30,29 @@
         </div>
         @endforeach
     </ol>
-</p>
+</div>
 @endif
+
+{{-- add a new task --}}
+<form action="/projects/{{ $project->id }}/tasks" method="POST" class="box">
+
+    {{ csrf_field() }}
+
+    @include('layout.errors')
+
+    <div class="field">
+        <label for="description" class="label">New Task</label>
+
+        <div class="control">
+            <input type="text" class="input {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="New task" value="{{ old('description') }}" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <button type="submit" class="button is-link">Add new task</button>
+        </div>
+    </div>
+</form>
 
 @endsection

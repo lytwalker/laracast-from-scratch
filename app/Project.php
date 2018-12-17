@@ -27,4 +27,15 @@ class Project extends Model
         // -- In this case it means a "Project has many Tasks"
         return $this->hasMany(Task::class);
     }
+
+    public function addTask($task){
+        // first way of doing it
+        /*return Task::create([
+            'project_id' => $this->id,
+            'description' => $description
+            ]);*/
+
+        // this is the more streamlined way of doing it
+        return $this->tasks()->create($task);
+    }
 }
